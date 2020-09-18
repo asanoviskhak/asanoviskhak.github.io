@@ -1,0 +1,125 @@
+/* body {
+    margin: 40px;
+  }
+  
+  .sidebar {
+          grid-area: sidebar;
+      }
+  
+      .content {
+          grid-area: content;
+      }
+  
+      .header {
+      color: black;
+      grid-area: header;
+      ul{
+        display: flex;
+        padding-left: 0;
+        li{
+          list-style: none;
+          margin: 0 25px 0 0;
+        }
+      }
+      }
+  
+      .footer {
+          grid-area: footer;
+      }
+  
+  
+      .wrapper {
+      margin-left: 60px;
+      width: calc(100vw - 140px);
+      height: calc(100vh - 80px);
+          display: grid;
+      grid-gap: 10px;
+          grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: 80px 1fr 80px;
+          grid-template-areas:
+      "....... header header"
+          "sidebar content content"
+          ".......  footer  footer";
+          background-color: #fff;
+      }
+  
+  
+  .box {
+    border-radius: 12px;
+    padding: 10px;
+    border: 1px solid;
+  }
+  
+  
+  .sidetext{
+    position: fixed;
+    left: -130px;
+    top: 300px;
+    transform: rotate(90deg);
+  }
+   */
+body{
+    width: 100%;
+    height: 4000px;
+    background-color: white;
+  }
+  
+  .main_name{
+    font-family: 'Press Start 2P', cursive;
+    position: fixed;
+    left: 10%;
+    top: 43%;
+    transform: translate(-50%, -50%);
+    font-size: 6vw;
+    color: #7CA660;
+    white-space: nowrap;
+    transform: rotate(-30deg);
+  }
+  
+  .circular-text{
+    font-family: 'Raleway', sans-serif;
+    position: fixed;
+    top:33%;
+    left:49%;
+    transform: translate(-50%, -50%);
+    color: black;
+    font-size: 32px;
+    font-weight: lighter;
+    transition: 0.5s ease-out;
+    /* -webkit-text-stroke: 1px rgba(255,255,255,1); */
+  }
+  
+  .arrow{
+    position: fixed;
+    color: white;
+    font-family: 'Raleway', sans-serif;
+    top:47%;
+    left:47.5%;
+    transform: translate(-50%, -50%);
+    -moz-transform-duration: 4000ms;
+    -webkit-transform-duration: 4000ms;
+    -o-transform-duration: 4000ms;
+    -transform-duration: 4000ms;
+    -ms-transform-duration: 4000ms;
+  }
+
+  body::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Hide scrollbar for IE, Edge and Firefox */
+  body{
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+
+  .addition{
+    font-family: 'Press Start 2P', cursive;
+    position: absolute;
+    font-size: 2vw;
+    color: white;
+    white-space: nowrap;
+    left: 900px;
+    top: 1450px;
+    transform: rotate(90deg);
+  }
