@@ -21,27 +21,7 @@
     <div><span class="addition">I am Web Developer and UI/UX Designer</span></div>
     <script>
         const circleType = new CircleType(document.getElementById("rotated")).radius(80);
-        // $(window).scroll(function(){
-        //     var offset = $(window).scrollTop();
-        //     offset = offset*0.4;
-        //     var fset = -offset;
-        //     $(".circular-text").css({
-        //     "-moz-transform":"rotate("+offset+"deg)",
-        //     "-webkit-transform":"rotate("+offset+"deg)",
-        //     "-o-transform":"rotate("+offset+"deg)",
-        //     "-ms-transform":"rotate("+offset+"deg)",
-        //     "-transform":"rotate("+offset+"deg)",
-        //     });
-        //     $(".arrow").css({
-        //     "-moz-transform":"rotate("+fset+"deg)",
-        //     "-webkit-transform":"rotate("+fset+"deg)",
-        //     "-o-transform":"rotate("+fset+"deg)",
-        //     "-ms-transform":"rotate("+fset+"deg)",
-        //     "-transform":"rotate("+fset+"deg)",
-        //     "transform": "translate(-50%, -50%)",
-        //     });
-        // });
-        jQuery(document).ready(function(event) {
+        $(window).scroll(function(){
             var offset = $(window).scrollTop();
             offset = offset*0.4;
             var fset = -offset;
@@ -61,6 +41,26 @@
             "transform": "translate(-50%, -50%)",
             });
         });
+        // jQuery(document).ready(function(event) {
+        //     var offset = $(window).scrollTop();
+        //     offset = offset*0.4;
+        //     var fset = -offset;
+        //     $(".circular-text").css({
+        //     "-moz-transform":"rotate("+offset+"deg)",
+        //     "-webkit-transform":"rotate("+offset+"deg)",
+        //     "-o-transform":"rotate("+offset+"deg)",
+        //     "-ms-transform":"rotate("+offset+"deg)",
+        //     "-transform":"rotate("+offset+"deg)",
+        //     });
+        //     $(".arrow").css({
+        //     "-moz-transform":"rotate("+fset+"deg)",
+        //     "-webkit-transform":"rotate("+fset+"deg)",
+        //     "-o-transform":"rotate("+fset+"deg)",
+        //     "-ms-transform":"rotate("+fset+"deg)",
+        //     "-transform":"rotate("+fset+"deg)",
+        //     "transform": "translate(-50%, -50%)",
+        //     });
+        // });
 
       </script>
 </body>
