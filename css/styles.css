@@ -1,13 +1,18 @@
+:root{
+   --primary: #39115f;
+   --backgr: #c9f1a3;
+   --secondary:  #d79922;
+}
+
 body {
   margin: 40px;
-  background-color: #efe2ba;
+  background-color: var(--backgr);
   font-family:'Press Start 2P', cursive ;
 }
 
 
 	.content {
     grid-area: content;
-    justify-content: space-evenly;
 	}
 
 	.header {
@@ -22,15 +27,21 @@ body {
 	}
 
 .main_name{
-  font-size: 6vw;
+  font-size: 5vw;
   font-weight: 700;
   line-height: 1.5em;
-  color:#4056a1;
-  -webkit-text-stroke: 1px rgba(0,0,0,1);
+  justify-content: center;
+  color: rgba(0, 0, 0, 0);
+  -webkit-text-stroke: 0.6px var(--primary);
+  /* -webkit-text-stroke: 1px rgba(0,0,0,1); */
+}
+.smaller{
+  font-size: 3vw;
+  line-height: 1.5em;
 }
 .main_name:hover{
-  color: rgba(255, 255, 255, 0);
-  -webkit-text-stroke: 0.6px rgba(0,0,0,1);
+  color: var(--primary);
+  -webkit-text-stroke: 0.6px var(--primary);
 }
 	.wrapper {
     margin-left: 60px;
@@ -49,16 +60,17 @@ body {
     list-style-type: none;
     margin:0;
     padding: 0 0 0 10px ;
+    
   }
   li{
     display: inline;
     font-weight: 800;
     color: rgba(0, 0, 0, 0);
-    -webkit-text-stroke: 0.6px #f13c20;
+    -webkit-text-stroke: 0.6px var(--secondary);;
   }
   li:hover{
-    color: #d79922;
-  -webkit-text-stroke: 1px black;
+    /* color: var(--secondary); */
+    -webkit-text-stroke: 1px var(--primary);
   }
 
   .i-portfolio{
@@ -73,9 +85,9 @@ body {
 .box {
   padding: 25px 10px 10px 40px;
   /* border: 3px solid; */
-  border-style: dashed solid dashed solid;
+  border-style: dotted none;
   border-width: 3px;
-  border-color: #f13c20;
+  border-color: var(--secondary);
 }
 
 .sidetext{
@@ -86,7 +98,7 @@ body {
   -webkit-animation: marquee 16s linear infinite;
     font-size: 12px;
     margin-right: 50px;
-    color: rgba(0, 0, 0, 1);
+    color: var(--primary);
     /* -webkit-text-stroke: 0.6px#d79922; */
 }
 @-webkit-keyframes marquee {
@@ -103,7 +115,7 @@ body {
   cursor: pointer;
 }
 .credits{
-  color:#4056a1;
+  color:var(--primary);
   margin-left: 10px;
   margin-top: 20px;
   font-size: 0.5rem;
@@ -120,6 +132,21 @@ a{
   -webkit-text-stroke: inherit;
   font-size: inherit;
   line-height: inherit;
+}
+
+.hidden{
+  display: none;
+}
+
+#blinker{
+  animation: blinkingText 1.2s infinite;
+}
+@keyframes blinkingText{
+  0%{     color: var(--primary);    }
+  49%{    color: var(--primary); }
+  60%{    color: transparent; }
+  99%{    color:transparent;  }
+  100%{   color: var(--primary);    }
 }
 
 @media screen and (max-width: 600px) {
