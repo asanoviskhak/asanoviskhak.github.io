@@ -1,11 +1,11 @@
 
-import {useState} from 'react';
+import React, {useState, Suspense} from 'react';
 import Intro from './components/intro';
 import Footer from './components/footer';
-import Portfolio from './components/portfolio';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
+const Portfolio = React.lazy(()=>import('./components/portfolio'));
 
 function App() {
   const [portfolio, setPortfolio] = useState(false);
@@ -20,7 +20,10 @@ function App() {
             </ul>      
         </div>
         {!portfolio && <Intro/>}
-        {portfolio && <Portfolio/>}
+        {portfolio && 
+          <Suspense fallback={<div>Loading...</div>}>
+            <Portfolio/>
+          </Suspense>}
         <Footer/>
       </div>
       <div className="sidetext">Iskhak Asanov | Web & Mobile Software Developer</div>
