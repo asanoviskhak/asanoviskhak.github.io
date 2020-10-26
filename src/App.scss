@@ -1,7 +1,7 @@
 $min_width: 400;
 $max_width: 800;
 $min_font: 18;
-$max_font: 52; 
+$max_font: 48; 
 :root{
     --primary: blue;
     --backgr: #c9f1a3;
@@ -309,8 +309,8 @@ h4{
     line-height: 0.5rem;
   }
   .work{
-    width:100%;
-    min-width:250px;
+    width: 280px;
+    min-width: 260px;
     margin-left: 15px;
     margin-right: 10px;
     text-align: center;
