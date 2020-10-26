@@ -1,3 +1,7 @@
+$min_width: 400;
+$max_width: 800;
+$min_font: 18;
+$max_font: 52; 
 :root{
     --primary: blue;
     --backgr: #c9f1a3;
@@ -37,7 +41,7 @@
 }
  
  .main_name{
-   font-size: 5vw;
+  font-size: #{$max_font}px;
    font-weight: 700;
    line-height: 1.5em;
    justify-content: center;
@@ -45,10 +49,7 @@
    -webkit-text-stroke: 0.6px var(--primary);
    /* -webkit-text-stroke: 1px rgba(0,0,0,1); */
  }
- .smaller{
-   font-size: 3vw;
-   line-height: 1.5em;
- }
+ 
 .wrapper {
   margin-left: 60px;
   width: calc(100vw - 120px);
@@ -173,11 +174,12 @@
  .portfolio{
     display: flex;
     flex-wrap: wrap !important;
+    flex-direction: row !important;
     /* justify-content: space-between; */
  }
 .work{
-  width: 250px;
-  min-width: 220px; 
+  width: 300px;
+  min-width: 240px; 
   margin-right: 40px;
   margin-bottom: 40px;
 }
@@ -226,16 +228,42 @@ h5{
   transform: translate(-5px, -5px);
   box-shadow: 8px 8px#39115f70;
 }
+
+h4{
+  line-height: 1.5rem;
+}
+
+.buttn{
+  border-style: solid;
+  border-color: var(--primary);
+  color: var(--primary);
+  padding: 12px 18px;
+  background-color: #00000000;
+  font-family:'Press Start 2P', cursive ;
+  cursor: url("./components/images/pointer.png"), auto;
+  transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, color 0.15s ease-in-out;
+}
+
+.buttn:hover{
+  color: white;
+  background-color: var(--secondary);
+  border-color: #00000000;
+}
+
  
 
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: #{$max_width}px) {
   .body{
     margin: 20px 20px 20px 20px;
     justify-content: center;
   }
   .wrapper{
     margin: 0 0 0 15px;
+  }
+  .main_name{
+    text-align: center;
+    font-size: calc( #{$min_font}px + (#{$max_font} - #{$min_font}) * ( (100vw - #{$min_width}px) / ( #{$max_width} - #{$min_width}) ));
   }
   li {
     float: none;
@@ -281,8 +309,8 @@ h5{
     line-height: 0.5rem;
   }
   .work{
-    width:80%;
-    min-width:200px;
+    width:100%;
+    min-width:250px;
     margin-left: 15px;
     margin-right: 10px;
     text-align: center;

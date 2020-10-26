@@ -1,7 +1,7 @@
 
 var txt = {
-    "hello": "Hey there!",
-    "welcome": 'Welcome to my page!',
+    "hello": "",
+    "welcome": '',
     "portfolio": "If you want to see my works, please go to Portfolio ...",
     "contact": "And if you want to contact me, just go to Contact page",
     "enjoy":"Follow me on social pages below ;)"
@@ -62,7 +62,7 @@ function typeWriter5() {
     document.getElementById("main_title").innerHTML = txt["enjoy"];
 }
 
-function start() {
+function start(){
     setTimeout(typeWriter, 1500);
     setTimeout(clear, 4500);
     setTimeout(typeWriter2, 5500);
@@ -71,6 +71,7 @@ function start() {
     setTimeout(typeWriter4, 15500);
     setTimeout(typeWriter5, 20500);
 }
-
 start();
+
+
 
