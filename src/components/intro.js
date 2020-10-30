@@ -9,15 +9,20 @@ export default class Intro extends Component{
                 <span className="main_name" id="main_title">
                     <Typewriter 
                         options={{
-                            strings: ['Hey there!', 'Welcome to my page!', 'If you want to see my works, please go to Portfolio ...', 'And if you want to contact me, just go to Contact page'],
+                            strings: [  'Hey there!', 
+                                        'I am Iskhak - Web Developer and UI/UX designer with 2 years of experience',
+                                        'You can learn about me more in Profile section', 
+                                        'Want to see my works?', 
+                                        'Go to Portfolio', 
+                                        'Or want to contact me?', 
+                                        'Easy. Click on the links below'],
                             autoStart: true,
-                            delay: 100,
+                            delay: 60,
                             deleteSpeed: 10,
                             loop: true,
                         }}
                     />                  
                 </span>
-                {/* <span className="main_name" id="blinker">|</span> */}
             </div>
         );
     }

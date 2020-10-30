@@ -1,63 +1,65 @@
-import React,{Component} from 'react';
+import React,{useState} from 'react';
 import { Card, Badge } from 'react-bootstrap';
 import email_min from './images/email-min.png';
 
 var pfolio = new Map();
 pfolio=[
     "achimera",{
-        "image": email_min,
+        "image": "",
         "type":"Full-stack",
         "title":"Website for Achimera",
-        "description": "Some quick example text to build on the card title and make up the bulk of the card's content",
-        "url":"#"
+        "description": "Website to show the table with the list of those who need a help or who can help in the pandemic situation.",
+        "url":"https://achimera.team"
     },
-    "bulut",{
-        "image": email_min,
+    "leaf",{
+        "image": "",
         "type":"Full-stack",
-        "title":"Hello World!",
-        "description": "Some quick example text to build on the card title and make up the bulk of the card's content",
-        "url":"#"
+        "title":"Website for Leaf OCS",
+        "description": "Introductory website for the Organic Cleaning company in Bellevue, Washington.",
+        "url":"https://leafocs.com"
+    },
+    "ask",{
+        "image": "",
+        "type":"Full-stack",
+        "title":'Website for Consulting Company "Ask"',
+        "description": "Website where customers are able to contact with company's staff, alongside learn about programs the company offer.",
+        "url":"https://ask.kg"
     },
     "achimera",{
-        "image": email_min,
-        "type":"Full-stack",
-        "title":"Website for Achimera",
-        "description": "Some quick example text to build on the card title and make up the bulk of the card's content",
-        "url":"#"
-    },
-    "achimera",{
-        "image": email_min,
-        "type":"Full-stack",
-        "title":"Website for Achimera",
-        "description": "Some quick example text to build on the card title and make up the bulk of the card's content",
+        "image": "",
+        "type":"UI/UX",
+        "title":'Carpooling application "KETTIK"',
+        "description": 'UI and UX design for mobile app "KETTIK", currently deprecated',
         "url":"#"
     },
     
 ]
 
-export default class Works extends Component{
-    render(){
-        return (
-            pfolio.map((value)=>(
-                (value.title) ?
-                    <div className="work">
-                        <Card>
-                            <Card.Img variant="top" src={value.image} />
-                            <Card.Body>
-                                <Card.Title><h4>{value.title}</h4></Card.Title>
-                                <Badge variant="secondary">{value.type}</Badge>
-                                <Card.Text>
-                                    <h5>
-                                    {value.description}
-                                    </h5>
-                                </Card.Text>
-                                <button className="buttn"><a href={value.url}>View site</a></button>
-                            </Card.Body>
-                        </Card>
-                    </div>
-                    : 
-                    ""
-            ))
-        )
-    }
+export default function Works() {
+    const [state, setState] = useState(0);
+    return (
+        pfolio.map((value)=>(
+            (value.title) ?
+            <div>
+                <div className="work">
+                    <Card>
+                        <Card.Img variant="top" src={value.image} />
+                        <Card.Body>
+                            <Card.Title><h4>{value.title}</h4></Card.Title>
+                            <Badge variant="secondary">{value.type}</Badge>
+                            <Card.Text>
+                                <h5>
+                                {value.description}
+                                </h5>
+                            </Card.Text>
+                            <button className="buttn" onClick={()=>{(state===1)?setState(0):setState(1)}}><a rel="noreferrer" target="_blank" href={value.url}>View site</a></button>
+                        </Card.Body>
+                    </Card>
+                </div>
+                
+            </div>
+                : 
+                ""
+        ))
+    )
 }
