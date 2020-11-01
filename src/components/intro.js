@@ -10,14 +10,14 @@ export default class Intro extends Component{
                     <Typewriter 
                         options={{
                             strings: [  'Hey there!', 
-                                        'I am Iskhak - Web Developer and UI/UX designer with 2 years of experience',
+                                        'I am Iskhak - Beginning Web Developer and UI/UX designer',
                                         'You can learn about me more in Profile section', 
                                         'Want to see my works?', 
                                         'Go to Portfolio', 
                                         'Or want to contact me?', 
                                         'Easy. Click on the links below'],
                             autoStart: true,
-                            delay: 60,
+                            delay: 40,
                             deleteSpeed: 10,
                             loop: true,
                         }}
