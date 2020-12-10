@@ -13,8 +13,8 @@ export default class Cursor{
         this.ItemLink = document.querySelectorAll('.cursor-item-link');
         // this.bounds = this.Cursor.getBoundingClientRect();
         this.cursorConfigs = {
-            x: {previous: 0, current: 0, amt: 0.4},
-            y: {previous: 0, current: 0, amt: 0.4},
+            x: {previous: 0, current: 0, amt: 0.3},
+            y: {previous: 0, current: 0, amt: 0.3},
         };
         this.onMouseMoveEv = () => {
 

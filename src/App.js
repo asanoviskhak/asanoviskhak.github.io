@@ -82,8 +82,8 @@ function App() {
         <div className="main-content">
           <div className="cursor-item title">ISKHAK ASANOV</div>
           <div className="cursor-item title2">
-            BEGINNING WEB<br></br>
-            DEVELOPER BASED <br></br>
+            BEGINNING WEB
+            DEVELOPER BASED
             IN ULSAN, SK
           </div>
         </div>
@@ -103,7 +103,7 @@ function App() {
       </div>
       
       <div className="div4">
-      <h3 id="getInTouch" className="git">ET IN TOUCH WITH ME - G</h3>
+      <h3 id="getInTouch" className="git cursor-item-link" >ET IN TOUCH - G</h3>
       </div>
       <div className="div7"></div>
       

@@ -6,8 +6,7 @@ import CircleType from 'circletype';
 
 window.onload = () =>{
   const cursor = new Cursor(document.querySelector(".cursor"));
-  const arctext = new CircleType(document.getElementById("getInTouch"));
-  
+  const arctext = new CircleType(document.getElementById("getInTouch")).forceWidth(true).forceHeight(true);
 }
 
 ReactDOM.render(
