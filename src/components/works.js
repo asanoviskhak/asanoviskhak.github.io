@@ -1,6 +1,5 @@
-import React,{useState} from 'react';
+import React from 'react';
 import { Card, Badge } from 'react-bootstrap';
-import email_min from './images/email-min.png';
 
 var pfolio = new Map();
 pfolio=[
@@ -36,7 +35,6 @@ pfolio=[
 ]
 
 export default function Works() {
-    const [state, setState] = useState(0);
     return (
         pfolio.map((value)=>(
             <div>
@@ -51,7 +49,7 @@ export default function Works() {
                                 {value.description}
                                 </h5>
                             </Card.Text>
-                            <button className="buttn" onClick={()=>{(state===1)?setState(0):setState(1)}}><a rel="noreferrer" target="_blank" href={value.url}>View site</a></button>
+                            <a rel="noreferrer" target="_blank" href={value.url}><button className="buttn">View site</button></a>
                         </Card.Body>
                     </Card>
                 </div>

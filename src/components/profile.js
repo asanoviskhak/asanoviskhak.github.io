@@ -5,7 +5,7 @@ export default class Profile extends Component{
         return(
             <div className="box">
                 <div className="profile-sec">
-                    <img className="profile-img" src={Me} alt="super cool guy"></img>
+                    <img className="vhs-filter__r vhs-filter__g vhs-filter__b profile-img" src={Me} alt="super cool guy"></img>
                     <div className="profile-info">
                         <h2>Iskhak Asanov</h2>
                         <ul><u>Education:</u><br/>
