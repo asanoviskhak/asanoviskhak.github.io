@@ -1,18 +1,40 @@
 
-import React,{Component} from 'react';
+import React,{useState} from 'react';
+import {NavLink} from 'react-router-dom';
 
-export default class Header extends Component{
-    render(){
-        return (
+
+export default function Header(){
+   
+    return (
             
-            <div className="box header">
-                <ul>
-                    <li className="i-portfolio"><a href="#">PORTFOLIO</a></li>
-                    <li className="i-profile"><a href="#">PROFILE</a></li>
-                    <li className="i-contact"><a href="mailto:iskhak@iskhakasan.tech">CONTACT</a></li>
-                </ul>      
+        <div className="div1 ">
+            <div className="cursor-item-link header">
+            <hr className="vertical-line"></hr>
+            <ul>
+                <li id="i-profile">
+                <NavLink className="link" activeClassName="active" exact to="/">main</NavLink>
+                </li>
+                <li
+                id="i-portfolio"
+                >
+                <NavLink className="link" activeClassName="active"  exact to="/works">works</NavLink>
+                </li>
+                <li
+                id="i-blog"
+                
+                >
+                <NavLink className="link" activeClassName="active"  exact to="/blog">blog</NavLink>
+                </li>
+                <li
+                id="i-home"
+                
+                >
+                <NavLink className="link" activeClassName="active"  exact to="/cv">cv</NavLink>
+                </li>
+            </ul>
+            
             </div>
+        </div>
 
         );
-    }
 }

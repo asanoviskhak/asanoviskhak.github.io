@@ -2,51 +2,43 @@
 $min_width: 300;
 $max_width: 1980;
 $mob_min_width: 300;
-$mob_max_width: 880;
-$tab_min_width: 880;
-$tab_max_width: 1440;
+$mob_max_width: 790;
+$tab_min_width: 790;
+$tab_max_width: 1340;
 $min_font: 56;
 $max_font: 110;
-@import './components/styles/cursor.scss'; 
+
+@import './components/styles/cursor.scss';
+@import './components/styles/slides.scss';
+
 :root{
-    --primary:  #16697a;
-    --secondary:  #db6400;
-    --backgr:  #ffa62b;
-    --border: #16697a;
-    --shadow:   black;
-    --info: #3F684495;
-    background: 
-    linear-gradient(114.95deg, #760000 0%, rgba(235, 0, 255, 0.5) 34.35%, rgba(0, 71, 255, 0) 70%), 
-    linear-gradient(180deg, #004B5B 0%, #FFA7A7 100%), 
-    linear-gradient(244.35deg, #FFB26A 0%, #3676B1 50.58%, #00A3FF 100%), 
-    linear-gradient(244.35deg, #FFFFFF 0%, #004A74 49.48%, #FF0000 100%), 
-    radial-gradient(100% 233.99% at 0% 100%, #B70000 0%, #AD00FF 100%), 
-    linear-gradient(307.27deg, #219D87 0.37%, #2650BA 50.19%, #2800C6 100%), 
-    radial-gradient(100% 140% at 100% 0%, #FF00C7 0%, #006C7A 49.48%, #760000 100%);
-    background-blend-mode: hard-light, overlay, overlay, overlay, difference, difference, normal;
-    animation: background 12s infinite ease-in-out;
- }
-
- body { 
-    height:100vh;
-    width: 100vw;
-    overflow-x: hidden;
-    cursor: none;
-    font-family: Work Sans;
- }
-
-body::-webkit-scrollbar {
-  width: 10px;               /* width of the entire scrollbar */
+  --primary:  #16697a;
+  --secondary:  #db6400;
+  --backgr:  #ffa62b;
+  --border: #16697a;
+  --shadow:   black;
+  --info: #3F684495;
+  background: 
+linear-gradient(114.95deg, #760000 0%, rgba(235, 0, 255, 0.5) 34.35%, rgba(0, 71, 255, 0) 70%), 
+linear-gradient(180deg, #004B5B 0%, #FFA7A7 100%), 
+linear-gradient(244.35deg, #FFB26A 0%, #3676B1 50.58%, #00A3FF 100%), 
+linear-gradient(244.35deg, #FFFFFF 0%, #004A74 49.48%, #FF0000 100%), 
+radial-gradient(100% 233.99% at 0% 100%, #B70000 0%, #AD00FF 100%), 
+linear-gradient(307.27deg, #219D87 0.37%, #2650BA 50.19%, #2800C6 100%), 
+radial-gradient(100% 140% at 100% 0%, #FF00C7 0%, #006C7A 49.48%, #760000 100%);
+background-blend-mode: hard-light, overlay, overlay, overlay, difference, difference, normal;
+animation: background 12s infinite ease-in-out;
+box-sizing: border-box;
 }
 
-body::-webkit-scrollbar-track {
-  background: orange;        /* color of the tracking area */
+html{
+  box-sizing: border-box !important;
 }
 
-body::-webkit-scrollbar-thumb {
-  background-color: blue;    /* color of the scroll thumb */
-  border-radius: 20px;       /* roundness of the scroll thumb */
-  border: 3.5px solid orange;  /* creates padding around scroll thumb */
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
 }
 
 
@@ -967,23 +959,43 @@ body::-webkit-scrollbar-thumb {
     
 }
 
- 
-// .content {
-//   grid-area: content;
-//   display: flex;
-//   flex-direction: row;
-// }
 
 
+ body {
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
+    font-family: Work Sans;
+    
+ }
 
-.active{
-  color: #FFFFFF;
+body::-webkit-scrollbar {
+  width: 10px;               /* width of the entire scrollbar */
 }
+
+body::-webkit-scrollbar-track {
+  background: orange;        /* color of the tracking area */
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: blue;    /* color of the scroll thumb */
+  border-radius: 20px;       /* roundness of the scroll thumb */
+  border: 3.5px solid orange;  /* creates padding around scroll thumb */
+}
+
+h1, h2, h3{
+  font-family: Space Grotesk;
+  font-style: normal;
+  font-weight: bold;
+}
+
 .div1 { grid-area: head; }
-  .div2 { grid-area: content;  }
-  .div3 { grid-area: footer; }
-  .div4 { grid-area: getintouch; }
+.div2 { grid-area: content;  }
+.div3 { grid-area: footer; }
+.div4 { grid-area: getintouch;}
 .parent {
+  box-sizing: content-box;
+  height: 100vh;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 0.5fr));
   row-gap: 50px;
@@ -991,15 +1003,14 @@ body::-webkit-scrollbar-thumb {
   ". . . . ."
   "head content content content content"
   ".  footer  footer footer getintouch";
-
-  }
+}
 
 .header {
-  position: relative;
   display: flex;
   line-height: 100%;
   writing-mode: vertical-lr;
-  justify-content: space-between;
+  align-content: flex-start;
+  text-align: start;
   margin-top: 20px;
 }
 
@@ -1020,7 +1031,7 @@ hr.vertical-line{
 
 
 ul{
-  display: inherit;
+  display: inline-flexbox;
   position: relative;
 }
 
@@ -1040,26 +1051,33 @@ ul{
 //   }
 //   }
 // }
-path {
-  fill: transparent;
-}
 
 
 li{
-  display: block;
+  display: inline-block;
+  
+}
+
+.link{
   font-size: 24px;
   font-style: normal;
   font-weight: 300;
   color: rgba(243, 169, 169, 0.75);
   transition: color 200ms linear, font-size 300ms linear;
+  text-decoration: none;
 }
 
-li:hover{
+.link:hover{
   color: rgba(255, 255, 255, 1);
   font-size: 27px;
 }
- 
+
+.active{
+  color: #FFFFFF;
+}
+
 .main-content{
+  display: flexbox;
   padding-right: 40px;
   font-family: Space Grotesk;
   font-style: normal;
@@ -1069,29 +1087,23 @@ li:hover{
   font-size: calc(#{$min_font}px + (#{$max_font} - #{$min_font}) * ( (100vw - #{$min_width}px) / ( #{$max_width} - #{$min_width}) ));
 }
 
-
 .title{
   color: #FFFFFF;
-  // filter: invert(1);
   -webkit-text-stroke: 1.4px #FFFFFF;
-  // -webkit-text-stroke: 2px #232522;
-  // mix-blend-mode: color-burn;
 }
 .title2{
-  
   -webkit-text-stroke: 1.8px #FFB26A;
-  // mix-blend-mode: color-burn;
- 
 }
+
 .footer{
-  display: inline-flex;
+  display: flex;
   position: relative;
-  margin-left: -40px;
 }
+
 .footer > ul{
-  padding: 20px 0;
-  margin-left: 40px;
+  display: inline-block;
 }
+
 .footer > ul > li{
   margin-right: 32px;
 }
@@ -1099,46 +1111,54 @@ li:hover{
 hr.horizontal-line{ 
   margin: auto;
   padding-top: 5px;
-  margin-left: 40px;
+  margin-left: 0px;
   margin-right: 10px;
 }
 
-
-.div{
-  width: 50px;
-  height: 50px;
+.git-div{
+  width: 208px;
+  height: 208px;
+  display: flex;
+  margin-top:-50px;
 }
 
 .git{
-  width: 50px;
-  height: 50px;
-  margin-top: -4px;
-  margin-left: -30px;
-  color: #ffffff;
-  mix-blend-mode: difference;
-  transform: rotate(120deg);
-
+  color: rgba(243, 169, 169, 0.75);
+  transition: all 200ms ease-out;
 }
 
- .hidden{
-   display: none;
- }
+.git:hover{
+  transform: rotate(-50deg);
+  -webkit-transform: rotate(-50deg);
+  will-change: transform;
+}
+
+.hidden{
+  display: none;
+}
  
- .loading {
+.loading {
   visibility: hidden;
 }
 
 
 
+
 @media (min-width: #{$mob_min_width}px) and (max-width: #{$mob_max_width}px){
+  body{
+    overflow-x: hidden;
+    height: 100%;
+    width: 95%;
+  }
   .parent{
     padding: 0 10px;
-    row-gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    height: 100%;
+    row-gap: 0;
     grid-template-areas:
-    "head head head head"
-    "content content content content"
-    "footer footer footer getintouch"
-    // "getintouch getintouch getintouch getintouch"
+    "head head"
+    "content content "
+    "footer getintouch"
     ;
   }
 
@@ -1146,62 +1166,84 @@ hr.horizontal-line{
   .header {
     position: relative;
     display: flex;
+    width: 100%;
     line-height: 100%;
     writing-mode: unset;
-    margin-top: 20px;
-    justify-content: space-evenly;
+    margin: 0;
+    padding-top: 20px;
+    padding-bottom: 20px;
   }
   
-  ul{
-    display: inline-flexbox;
-  }
   li{
     display: block;
   }
 
-  .header > ul > li{
-    margin: 0;
-    padding: 0;
-    margin-right: 32px;
-  }
-
   .header > ul{
-    margin-left: 0;
-    justify-content: space-evenly;
-    padding: 20px 0px;
+    display: flex;
+    margin: 0;
+    justify-content: space-around;
+    justify-items: start;
   }
 
-  .vertical-line{
+  .header > ul > li{
+    display: inline-block;
+    margin: 0;
+    padding: 0 18px 0 0;
+  }
+  
+  hr.vertical-line{
     display: none;
   }
 
   .main-content{
     margin: 0;
-    padding-right: 10px;
+    padding: 0;
     font-size: 52px;
+    padding: 20px 0;
   }
 
   .title{
     -webkit-text-stroke: 0px #FFFFFF;
   }
   .title2{
-    text-align: right;
     -webkit-text-stroke: 1.2px #FFB26A;
   }
 
 
   .footer{
     display: block;
+    margin: 0;
+    padding: 20px 0;
+  }
+  .footer > ul{
+    display: block;
+    margin: 0;
+    line-height: 200%;
+    padding: 0;
+    padding-top: 20px;
   }
 
   hr.horizontal-line{
-    margin-bottom: -20px;
+    
+    margin: 0;
+    padding: 0;
+
   }
 
+  .git-div{
+    
+    width: 150px;
+    height: 150px;
+    display: inherit;
+    padding: 0;
+    margin-top: 40px;
+  }
   .git{
     margin: 0;
-    margin-top:50px ;
-    margin-left: -30px;
+  }
+  .git:hover{
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
   }
 }
 

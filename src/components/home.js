@@ -1,24 +1,19 @@
 import React, { Component } from 'react'
-
+import CursorImg from './cursor.js'
 export default class Home extends Component {
     render() {
         return (
             <>
-            <div className="parent">
-            <div className="div1">
-                This is header
-            </div>
             <div className="div2">
-                This will be my content
+                <div className="main-content">
+                    <div className="cursor-item title">ISKHAK ASANOV</div>
+                    <div className="cursor-item title2">
+                        BEGINNING WEB 
+                        DEVELOPER BASED
+                        IN ULSAN, SK
+                    </div>
+                </div>
             </div>
-            <div className="div3">
-                This is gonna be footer
-            </div>
-            <div className="div4">
-                Get in touching
-            </div>
-            </div>
-            
             </>
         )
     }
