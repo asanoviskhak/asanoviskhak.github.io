@@ -29,23 +29,24 @@ class Details extends Component{
             return <h3>Loading....</h3>;
         }
         return (
-            pfolio.map((value)=>(
-                <div>
-                    <div className="blog-card">
-                    <a rel="noreferrer" target="_blank" href={value.url}>
-                        <Card id="blog-card">
-                            <Card.Body>
-                                <Badge variant="secondary">{value.type}</Badge>
-                                <Card.Title><h4>{value.title}</h4></Card.Title>
-                            </Card.Body>
-                            <Card.Footer>
-                                <small className="text-muted">Author - {value.author} • <i>{value.views} views</i></small>
-                            </Card.Footer>
-                        </Card>
-                        </a>
-                    </div>
-                </div> 
-            ))
+            // pfolio.map((value)=>(
+            //     <div>
+            //         <div className="blog-card">
+            //         <a rel="noreferrer" target="_blank" href={value.url}>
+            //             <Card id="blog-card">
+            //                 <Card.Body>
+            //                     <Badge variant="secondary">{value.type}</Badge>
+            //                     <Card.Title><h4>{value.title}</h4></Card.Title>
+            //                 </Card.Body>
+            //                 <Card.Footer>
+            //                     <small className="text-muted">Author - {value.author} • <i>{value.views} views</i></small>
+            //                 </Card.Footer>
+            //             </Card>
+            //             </a>
+            //         </div>
+            //     </div> 
+            // )) 
+            ""
         )
         
     }

@@ -5,12 +5,12 @@ export default class Home extends Component {
         return (
             <>
             <div className="div2">
-                <div className="main-content">
+                <div className="main-content" >
                     <div className="cursor-item title">ISKHAK ASANOV</div>
                     <div className="cursor-item title2">
-                        BEGINNING WEB 
-                        DEVELOPER BASED
-                        IN ULSAN, SK
+                        WEB DEVELOPER 
+                        BASED IN ULSAN,
+                        SOUTH KOREA
                     </div>
                 </div>
             </div>

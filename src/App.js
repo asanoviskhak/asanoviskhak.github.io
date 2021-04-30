@@ -1,5 +1,5 @@
 
-import React, {useState, Suspense} from 'react';
+import React from 'react';
 import Header from './components/header';
 import Footer from './components/footer';
 import Blog from './components/blog';
@@ -7,16 +7,12 @@ import Home from './components/home';
 import Portfolio from './components/portfolio';
 
 import './App.scss';
-import {BrowserRouter, Switch, Route} from 'react-router-dom'
-
-
-
-const Profile = React.lazy(()=>import('./components/profile'));
+import {HashRouter, Switch, Route} from 'react-router-dom'
 
 function App() {
     
   return (
-    <BrowserRouter>
+    <HashRouter>
       <div className="parent">
       <Header/>
         <Switch>
@@ -26,7 +22,7 @@ function App() {
         </Switch>
         <Footer/>  
       </div>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 

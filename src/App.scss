@@ -9,7 +9,8 @@ $min_font: 56;
 $max_font: 110;
 
 @import './components/styles/cursor.scss';
-@import './components/styles/slides.scss';
+@import './components/styles/portfolio.scss';
+@import './components/styles/blog.scss';
 
 :root{
   --primary:  #16697a;
@@ -28,7 +29,6 @@ linear-gradient(307.27deg, #219D87 0.37%, #2650BA 50.19%, #2800C6 100%),
 radial-gradient(100% 140% at 100% 0%, #FF00C7 0%, #006C7A 49.48%, #760000 100%);
 background-blend-mode: hard-light, overlay, overlay, overlay, difference, difference, normal;
 animation: background 12s infinite ease-in-out;
-box-sizing: border-box;
 }
 
 html{
@@ -959,14 +959,16 @@ html{
     
 }
 
-
+a{
+  text-decoration: none;
+}
 
  body {
     width: 100vw;
     height: 100vh;
     overflow-x: hidden;
     font-family: Work Sans;
-    
+    float: none;
  }
 
 body::-webkit-scrollbar {
@@ -989,11 +991,18 @@ h1, h2, h3{
   font-weight: bold;
 }
 
+[class*="div"]::after{
+  content: "";
+  display: table;
+  clear: both;
+}
+
 .div1 { grid-area: head; }
-.div2 { grid-area: content;  }
+.div2 { grid-area: content;}
 .div3 { grid-area: footer; }
-.div4 { grid-area: getintouch;}
+.div4 { grid-area: getintouch; }
 .parent {
+  overflow-y: hidden;
   box-sizing: content-box;
   height: 100vh;
   display: grid;
@@ -1006,52 +1015,37 @@ h1, h2, h3{
 }
 
 .header {
-  display: flex;
+  display: inline-block;
+  width: 98%;
+  margin: 1%;
   line-height: 100%;
   writing-mode: vertical-lr;
-  align-content: flex-start;
-  text-align: start;
-  margin-top: 20px;
+  justify-items: start;
 }
 
 hr{
   border: none; 
   border-bottom: 1.4px solid rgba(243, 169, 169, 0.75);
-  width: 100px;
-  max-width: 100px;
-  min-width: 70px;
+  width: 70px;
+  max-width: 70px;
+  min-width: 40px;
 }
 
 hr.vertical-line{ 
-  margin-left: 48px; 
+  position: relative;
+  left: 18%;
   margin-top: 60px;
-  margin-bottom: 40px; 
   transform: rotate(90deg);
 }
 
-
-ul{
-  display: inline-flexbox;
-  position: relative;
-}
-
 .header > ul{
-  margin-left: 80px;
-  padding: 20px 10px;
+  position: absolute;
+  left: 5%;
+  padding: 10px 10px;
 }
 .header > ul > li{
   margin-top: 32px;
 }
-
-// @mixin rotated-text($num-letters: 100, $angle-span: 180deg, $angle-offset: 0deg) {
-//   $angle-per-char: $angle-span / $num-letters;
-//   @for $i from 1 through $num-letters {
-//   .char#{$i} {
-//   @include transform(rotate($angle-offset + $angle-per-char * $i))
-//   }
-//   }
-// }
-
 
 li{
   display: inline-block;
@@ -1077,7 +1071,9 @@ li{
 }
 
 .main-content{
-  display: flexbox;
+  height: 420px;
+  padding: 0;
+  display: inline-flexbox;
   padding-right: 40px;
   font-family: Space Grotesk;
   font-style: normal;
@@ -1087,11 +1083,21 @@ li{
   font-size: calc(#{$min_font}px + (#{$max_font} - #{$min_font}) * ( (100vw - #{$min_width}px) / ( #{$max_width} - #{$min_width}) ));
 }
 
+.title-bg{
+  box-decoration-break: clone;
+  border-radius: .2em;
+  padding: 0 .2em;
+  -webkit-box-decoration-break: clone;
+}
+
 .title{
+  position: relative;
   color: #FFFFFF;
   -webkit-text-stroke: 1.4px #FFFFFF;
 }
 .title2{
+  position: relative;
+  width: 80%;
   -webkit-text-stroke: 1.8px #FFB26A;
 }
 
@@ -1102,15 +1108,17 @@ li{
 
 .footer > ul{
   display: inline-block;
+  position: absolute;
+  left: 8%;
 }
 
 .footer > ul > li{
   margin-right: 32px;
 }
 
-hr.horizontal-line{ 
-  margin: auto;
-  padding-top: 5px;
+hr.horizontal-line{
+  position: relative;
+  padding-top: 24px;
   margin-left: 0px;
   margin-right: 10px;
 }
@@ -1119,7 +1127,7 @@ hr.horizontal-line{
   width: 208px;
   height: 208px;
   display: flex;
-  margin-top:-50px;
+  margin-top:-70px;
 }
 
 .git{
@@ -1158,20 +1166,20 @@ hr.horizontal-line{
     grid-template-areas:
     "head head"
     "content content "
+    "content content "
     "footer getintouch"
     ;
+    overflow-x: hidden;
   }
 
 
   .header {
     position: relative;
-    display: flex;
+    display: block;
     width: 100%;
     line-height: 100%;
     writing-mode: unset;
-    margin: 0;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    margin: 20px 0;
   }
   
   li{
@@ -1181,8 +1189,8 @@ hr.horizontal-line{
   .header > ul{
     display: flex;
     margin: 0;
-    justify-content: space-around;
-    justify-items: start;
+    padding: 0;
+    left: 0;
   }
 
   .header > ul > li{
@@ -1196,16 +1204,22 @@ hr.horizontal-line{
   }
 
   .main-content{
+    position: relative;
     margin: 0;
     padding: 0;
-    font-size: 52px;
+    overflow-y: hidden;
+    font-size: 48px;
+    height: max-content;
     padding: 20px 0;
+    margin: 40px 0;
   }
 
   .title{
     -webkit-text-stroke: 0px #FFFFFF;
   }
   .title2{
+    width: 100%;
+   
     -webkit-text-stroke: 1.2px #FFB26A;
   }
 
@@ -1221,6 +1235,7 @@ hr.horizontal-line{
     line-height: 200%;
     padding: 0;
     padding-top: 20px;
+    left: 0;
   }
 
   hr.horizontal-line{
@@ -1231,19 +1246,14 @@ hr.horizontal-line{
   }
 
   .git-div{
-    
-    width: 150px;
-    height: 150px;
     display: inherit;
     padding: 0;
-    margin-top: 40px;
+    bottom: 0;
   }
   .git{
-    margin: 0;
-  }
-  .git:hover{
-    transform: rotate(0deg);
-    -webkit-transform: rotate(0deg);
+    width: 130px;
+    height: 130px;
+    margin: 40px 0;
   }
 }
 
