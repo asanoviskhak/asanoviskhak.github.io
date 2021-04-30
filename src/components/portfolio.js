@@ -34,7 +34,7 @@ pfolio = [
     title: "BULUT",
     description:
       "Website for the tech services company which is aimed to provide full-pack services for small and mid-sized businesses",
-    url: "https://bulut.services",
+    url: "https://bulut.vercel.app",
     tools: ["React.js", "Node.js", "Mailgun", "Telegraph API", "Github Pages"],
   },
   {
