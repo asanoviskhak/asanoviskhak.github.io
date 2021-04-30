@@ -19,7 +19,7 @@ import {
   Image,
 } from "pure-react-carousel";
 
-import {motion} from 'framer-motion'
+import { motion } from "framer-motion";
 
 import "pure-react-carousel/dist/react-carousel.es.css";
 import PortfolioDetails from "./portfolio-details";
@@ -27,8 +27,8 @@ import { Link } from "react-router-dom";
 
 var pfolio = new Map();
 pfolio = [
-  { 
-    name:"bulut",
+  {
+    name: "bulut",
     image: Bulut,
     type: "Full-stack development",
     title: "BULUT",
@@ -38,7 +38,7 @@ pfolio = [
     tools: ["React.js", "Node.js", "Mailgun", "Telegraph API", "Github Pages"],
   },
   {
-    name:"askconsulting",
+    name: "askconsulting",
     image: Ask,
     type: "Full-stack development",
     title: "ASK CONSULTING",
@@ -55,7 +55,7 @@ pfolio = [
     ],
   },
   {
-    name:"achimera",
+    name: "achimera",
     image: Achimera,
     type: "Full-stack development",
     title: "ACHIMERA",
@@ -65,7 +65,7 @@ pfolio = [
     tools: ["Firebase API", "Bootstrap", "JS"],
   },
   {
-    name:"kettik",
+    name: "kettik",
     image: Kettik,
     type: "UI/UX design",
     title: "KETTIK",
@@ -78,7 +78,7 @@ pfolio = [
 
 export default function Portfolio() {
   const [state, setState] = useState(1);
-  const transition = {duration:.6, ease:[.45, .15, .25, .95]}
+  const transition = { duration: 0.6, ease: [0.45, 0.15, 0.25, 0.95] };
   useEffect(() => {
     const cursor = new Cursor(document.querySelector(".cursor"));
   }, []);
@@ -88,85 +88,85 @@ export default function Portfolio() {
   }
 
   return (
-      <Fragment>
-    <div className="div2">
-      <CarouselProvider
-        visibleSlides={1}
-        totalSlides={pfolio.length}
-        infinite="true"
-        lockOnWindowScroll="true"
-        naturalSlideHeight={420}
-        naturalSlideWidth={550}
-      >
-        <div className="portfolio col-2">
-          <div className="cursor-item proj-image">
-            <Slider className="img-carousel">
-              {pfolio.map((work, i) => (
-                <Slide index={i} className="slide-wrap">
-                  <Link exact to={"/works/"+work.name}>
-                  <Image
-                    className="img-zoom-in"
-                    src={work.image}
-                    alt={work.title}
-                  />
-                  </Link>
-                  
-                </Slide>
-              ))}
-            </Slider>
-          </div>
-          <div className="row-3 white">
-            <div className="proj-content">
-              <Slider>
+    <Fragment>
+      <div className="div2">
+        <CarouselProvider
+          visibleSlides={1}
+          totalSlides={pfolio.length}
+          infinite="true"
+          lockOnWindowScroll="true"
+          naturalSlideHeight={420}
+          naturalSlideWidth={550}
+        >
+          <div className="portfolio col-2">
+            <div className="cursor-item proj-image">
+              <Slider className="img-carousel">
                 {pfolio.map((work, i) => (
-                  <Slide index={i} className="work-image">
-                    <motion.div exit={{opacity:0}} transition={transition}>
-                        <a
-                        className="work-title cursor-item"
-                        href={work.url}
-                        rel="noreferrer"
-                        target="_blank"
-                        >
-                        <h1 className="portfolio-title">
-                            {work.title} <span className="visit-arrow">⇥</span>
-                        </h1>
-                        </a>
-                        <span className="type-tag">{work.type}</span>
-                        <p className="portfolio-description">{work.description}</p>
-                        <p className="portfolio-tools">
-                        <b>Tools: </b>
-                        {work.tools.map((tool) => tool + ", ")}
-                        </p>
-                    </motion.div>
+                  <Slide index={i} className="slide-wrap">
+                    {/* <Link exact to={"/works/"+work.name}> */}
+                    <Image
+                      className="img-zoom-in"
+                      src={work.image}
+                      alt={work.title}
+                    />
+                    {/* </Link> */}
                   </Slide>
                 ))}
               </Slider>
             </div>
+            <div className="row-3 white">
+              <div className="proj-content">
+                <Slider>
+                  {pfolio.map((work, i) => (
+                    <Slide index={i} className="work-image">
+                      <motion.div exit={{ opacity: 0 }} transition={transition}>
+                        <a
+                          className="work-title cursor-item"
+                          href={work.url}
+                          rel="noreferrer"
+                          target="_blank"
+                        >
+                          <h1 className="portfolio-title">
+                            {work.title} <span className="visit-arrow">⇥</span>
+                          </h1>
+                        </a>
+                        <span className="type-tag">{work.type}</span>
+                        <p className="portfolio-description">
+                          {work.description}
+                        </p>
+                        <p className="portfolio-tools">
+                          <b>Tools: </b>
+                          {work.tools.map((tool) => tool + ", ")}
+                        </p>
+                      </motion.div>
+                    </Slide>
+                  ))}
+                </Slider>
+              </div>
 
-            <div className="col-2">
-              {/* <div className="arrows left cursor-item-link">
+              <div className="col-2">
+                {/* <div className="arrows left cursor-item-link">
                             <span>
                                 <ButtonBack onClick={handleCountBack} className="but-arr" ><img className="white" src={LeftArrow} alt='lft arrw'/></ButtonBack>
                             </span>
                         </div> */}
-              <div className="arrows left">
-                <span>
-                  {state}/{pfolio.length}
-                </span>
-              </div>
-              <div className="arrows middle cursor-item-link">
-                <span>
-                  <ButtonNext onClick={handleCountNext} className="but-arr">
-                    <img className="white" src={RightArrow} alt="rght arrw" />
-                  </ButtonNext>
-                </span>
+                <div className="arrows left">
+                  <span>
+                    {state}/{pfolio.length}
+                  </span>
+                </div>
+                <div className="arrows middle cursor-item-link">
+                  <span>
+                    <ButtonNext onClick={handleCountNext} className="but-arr">
+                      <img className="white" src={RightArrow} alt="rght arrw" />
+                    </ButtonNext>
+                  </span>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </CarouselProvider>
-    </div>
+        </CarouselProvider>
+      </div>
     </Fragment>
-    
   );
 }
