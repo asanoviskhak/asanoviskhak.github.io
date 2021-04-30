@@ -964,11 +964,14 @@ a{
 }
 
  body {
-    width: 100vw;
-    height: 100vh;
-    overflow-x: hidden;
-    font-family: Work Sans;
-    float: none;
+  width: 100vw;
+  height: auto;
+  overflow-x: hidden;
+  font-family: Work Sans;
+  float: none;
+  &.no-scroll {
+    overflow-y: hidden;
+  }
  }
 
 body::-webkit-scrollbar {
@@ -999,14 +1002,11 @@ h1, h2, h3{
 
 .div1 { grid-area: head; }
 .div2 { grid-area: content;}
-.div3 { grid-area: footer; }
-.div4 { grid-area: getintouch; }
+.div3 { grid-area: footer; margin-top: 75px; }
+.div4 { grid-area: getintouch;  margin-top: 75px;}
 .parent {
-  overflow-y: hidden;
-  box-sizing: content-box;
-  height: 100vh;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 0.5fr));
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   row-gap: 50px;
   grid-template-areas:
   ". . . . ."

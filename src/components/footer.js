@@ -20,7 +20,7 @@ export default class Footer extends Component{
             
             <div className="div4">
                 <a href="mailto:hello@iskhakasan.tech">
-                <div className="git-div">
+                <div className="git-div cursor-item">
                     <img typeof="svg" alt="get in touch" className="git" src={GetInTouch} ></img>
                 </div>
                 </a>

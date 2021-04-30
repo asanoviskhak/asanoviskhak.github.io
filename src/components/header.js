@@ -22,12 +22,12 @@ export default function Header() {
               works
             </NavLink>
           </li>
-          {/* <li
+          <li
                 id="i-blog"
                 
                 >
-                <NavLink className="link" activeClassName="active"  exact to="/blog">blog</NavLink>
-                </li> */}
+                <NavLink className="link" activeClassName="active" exact to="/blog">blog</NavLink>
+                </li>
           {/* <li
                 id="i-home"
                 

@@ -29,12 +29,17 @@
   justify-content: center;
   transition: 0.3s ease-in-out;
   cursor: pointer;
+  &.left{
+    color: #000000;
+  }
   &.middle{
-    color:#000;
-    margin-left: 65px;
+    margin-left: 45px;
+  }
+  &.middle:hover{
+    margin-left: 55px;
   }
   &.right{
-    margin-left: 100px;
+    margin-left: 65px;
   }
 }
 
@@ -77,6 +82,26 @@
 .img-zoom-in:hover{
   transform: scale(1.05);
 }
+
+.project-detail{
+  margin: 0;
+  padding: 0;
+  margin-top: -21px;
+  position: relative;  
+  .project-detail-img{
+    width: 100%;
+    position: absolute;
+    overflow: hidden;
+    .detail-img{
+      img{
+        position: absolute;
+        width: 100%;
+      }
+    }  
+  } 
+}
+
+
 
 .img-zoom-in:hover .img-overlay{
   opacity: 1;
