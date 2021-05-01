@@ -81,6 +81,23 @@ export default function Portfolio() {
   const transition = { duration: 0.6, ease: [0.45, 0.15, 0.25, 0.95] };
   useEffect(() => {
     const cursor = new Cursor(document.querySelector(".cursor"));
+    setInterval(()=>{
+      const blinker = document.querySelector(".img-carousel");
+        if (blinker){
+          document.querySelector(".img-carousel").classList.add("blink");
+          blink();
+        }
+    }, 6500)
+    function blink(){
+      console.log("Fired interval");
+      setTimeout(()=>{
+        const blinker = document.querySelector(".img-carousel");
+        if (blinker.classList.contains("blink"))
+          blinker.classList.remove("blink");
+        else blinker.classList.add("blink");
+        console.log("Fired Timeout");
+      }, 250);
+    }
   }, []);
   function handleCountNext() {
     setState(state + 1);
@@ -114,20 +131,20 @@ export default function Portfolio() {
                 ))}
               </Slider>
             </div>
-            <div className="row-3 white">
+            <div className="row-3 white reverse-col">
               <div className="proj-content">
                 <Slider>
                   {pfolio.map((work, i) => (
                     <Slide index={i} className="work-image">
                       <motion.div exit={{ opacity: 0 }} transition={transition}>
                         <a
-                          className="work-title cursor-item"
+                          className="work-title cursor-item-link"
                           href={work.url}
                           rel="noreferrer"
                           target="_blank"
                         >
-                          <h1 className="portfolio-title">
-                            {work.title} <span className="visit-arrow">⇥</span>
+                          <h1 className="portfolio-title text-underlined">
+                            {work.title}
                           </h1>
                         </a>
                         <span className="type-tag">{work.type}</span>
@@ -136,7 +153,10 @@ export default function Portfolio() {
                         </p>
                         <p className="portfolio-tools">
                           <b>Tools: </b>
-                          {work.tools.map((tool) => tool + ", ")}
+                          {work.tools.map((tool, i) => {
+                            if (i+1===work.tools.length) return tool;
+                            else return tool + ", "
+                          })}
                         </p>
                       </motion.div>
                     </Slide>

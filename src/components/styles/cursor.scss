@@ -5,10 +5,13 @@
     z-index: 10;
     contain: layout style size;
     pointer-events: none;
+    
     &.media-blend {
       z-index: 100;
       mix-blend-mode: difference;
+      
       .cursor-media {
+        
         filter: invert(1);
       }
     }
@@ -23,6 +26,7 @@
       transform: scale(0.2);
       background: black;
       border-radius: 50%;
+      
     }
     .cursor-media {
       display: block;

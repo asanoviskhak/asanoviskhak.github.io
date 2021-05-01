@@ -1,5 +1,5 @@
 import React,{useEffect, useState} from 'react';
-
+import Cursor from './cursor/cursor';
 const proxy = "https://cors-anywhere.herokuapp.com/";
 
 
@@ -10,6 +10,7 @@ export default function Portfolio(){
     const [pfolio, setPfolio] = useState([{}]);
     
     useEffect( () => {
+        const cursor = new Cursor(document.querySelector(".cursor"));
         let tester = []
         fetch('https://api.telegra.ph/getPageList?access_token=c0a7505bf761d53fa81d36da5a6ff99e4da885fdbc24b34c6d9bde144d80&limit=12')
         .then(blob => blob.json())
@@ -36,7 +37,7 @@ export default function Portfolio(){
             <div className="blog-list">
                 {
                     pfolio.map((blog)=>(
-                        <a href={blog.url} rel="noreferrer" target="_blank"><div className="blog">
+                        <a href={blog.url} rel="noreferrer" target="_blank"><div className="blog cursor-item-link">
                             <h3>{blog.title}</h3>
                             {/* <a className="blog-link" href={blog.url} target="_blank">View post →</a> */}
                         </div></a>
