@@ -112,12 +112,13 @@ export default function Portfolio() {
           totalSlides={pfolio.length}
           infinite="true"
           lockOnWindowScroll="true"
-          naturalSlideHeight={420}
+          naturalSlideHeight={470}
           naturalSlideWidth={550}
         >
           <div className="portfolio col-2">
             <div className="cursor-item proj-image">
-              <Slider className="img-carousel">
+            <div className="img-carousel">
+              <Slider >
                 {pfolio.map((work, i) => (
                   <Slide index={i} className="slide-wrap">
                     {/* <Link exact to={"/works/"+work.name}> */}
@@ -129,7 +130,9 @@ export default function Portfolio() {
                     {/* </Link> */}
                   </Slide>
                 ))}
+                
               </Slider>
+              </div>
             </div>
             <div className="row-3 white reverse-col">
               <div className="proj-content">

@@ -966,6 +966,7 @@ a{
 
  body {
   width: 100vw;
+  min-height: 100vh;
   height: auto;
   overflow-x: hidden;
   font-family: Work Sans;
@@ -1003,8 +1004,8 @@ h1, h2, h3{
 
 .div1 { grid-area: head; }
 .div2 { grid-area: content;}
-.div3 { grid-area: footer; margin-top: 75px; }
-.div4 { grid-area: getintouch;  margin-top: 75px;}
+.div3 { grid-area: footer; margin-top: 65px; }
+.div4 { grid-area: getintouch;  margin-top: 65px;}
 .parent {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
