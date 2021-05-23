@@ -2,7 +2,7 @@
   "name": "iskhakasan",
   "version": "1.1.0",
   "private": true,
-  "homepage": "https://asanoviskhak.github.io",
+  "homepage": "https://iskhakasan.tech",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Fragment } from "react";
+import React, { useState, useEffect, Fragment, useContext } from "react";
 
 import Cursor from "./cursor/cursor";
 
@@ -17,6 +17,7 @@ import {
   ButtonBack,
   ButtonNext,
   Image,
+  CarouselContext
 } from "pure-react-carousel";
 
 import { motion } from "framer-motion";
@@ -77,36 +78,38 @@ pfolio = [
 ];
 
 export default function Portfolio() {
-  const [state, setState] = useState(1);
+  const [slide, setSlide] = useState(1);
   const transition = { duration: 0.6, ease: [0.45, 0.15, 0.25, 0.95] };
+
+  function handleCountNext() {
+    setSlide(slide + 1);
+    if (slide === pfolio.length) setSlide(1);
+  }
+
   useEffect(() => {
     const cursor = new Cursor(document.querySelector(".cursor"));
-    setInterval(()=>{
-      const blinker = document.querySelector(".img-carousel");
-        if (blinker){
-          document.querySelector(".img-carousel").classList.add("blink");
-          blink();
-        }
-    }, 6500)
-    function blink(){
-      console.log("Fired interval");
-      setTimeout(()=>{
-        const blinker = document.querySelector(".img-carousel");
-        if (blinker.classList.contains("blink"))
-          blinker.classList.remove("blink");
-        else blinker.classList.add("blink");
-        console.log("Fired Timeout");
-      }, 250);
-    }
+    // setInterval(()=>{
+    //   const blinker = document.querySelector(".img-carousel");
+    //     if (blinker){
+    //       document.querySelector(".img-carousel").classList.add("blink");
+    //       blink();
+    //     }
+    // }, 6500)
+    // function blink(){
+    //   setTimeout(()=>{
+    //     const blinker = document.querySelector(".img-carousel");
+    //     if (blinker.classList.contains("blink"))
+    //       blinker.classList.remove("blink");
+    //     else blinker.classList.add("blink");
+    //   }, 250);
+    // }
   }, []);
-  function handleCountNext() {
-    setState(state + 1);
-    if (state === pfolio.length) setState(1);
-  }
+  
+  
 
   return (
     <Fragment>
-      <div className="div2">
+      <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {delay:.2, ...transition}}} exit={{opacity:0}} className="div2">
         <CarouselProvider
           visibleSlides={1}
           totalSlides={pfolio.length}
@@ -118,7 +121,7 @@ export default function Portfolio() {
           <div className="portfolio col-2">
             <div className="cursor-item proj-image">
             <div className="img-carousel">
-              <Slider >
+              <Slider   >
                 {pfolio.map((work, i) => (
                   <Slide index={i} className="slide-wrap">
                     {/* <Link exact to={"/works/"+work.name}> */}
@@ -175,12 +178,12 @@ export default function Portfolio() {
                         </div> */}
                 <div className="arrows left">
                   <span>
-                    {state}/{pfolio.length}
+                    {slide}/{pfolio.length}
                   </span>
                 </div>
                 <div className="arrows middle cursor-item-link">
                   <span>
-                    <ButtonNext onClick={handleCountNext} className="but-arr">
+                    <ButtonNext onClick={()=>handleCountNext()} className="but-arr">
                       <img className="white" src={RightArrow} alt="rght arrw" />
                     </ButtonNext>
                   </span>
@@ -189,7 +192,7 @@ export default function Portfolio() {
             </div>
           </div>
         </CarouselProvider>
-      </div>
+      </motion.div>
     </Fragment>
   );
 }

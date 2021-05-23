@@ -17,9 +17,11 @@ const getSiblings = (e) => {
   // for collecting siblings
   let siblings = [];
   // if no parent, return no sibling
-  if (!e.parentNode) {
+  
+  if (!e) {
     return siblings;
   }
+  
   // first child of the parent node
   let sibling = e.parentNode.firstChild;
   // collecting siblings

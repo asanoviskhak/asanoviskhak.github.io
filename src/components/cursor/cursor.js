@@ -13,8 +13,8 @@ export default class Cursor{
         this.ItemLink = document.querySelectorAll('.cursor-item-link');
         // this.bounds = this.Cursor.getBoundingClientRect();
         this.cursorConfigs = {
-            x: {previous: 0, current: 0, amt: 0.3},
-            y: {previous: 0, current: 0, amt: 0.3},
+            x: {previous: 0, current: 0, amt: 0.4},
+            y: {previous: 0, current: 0, amt: 0.4},
         };
         this.onMouseMoveEv = () => {
 
@@ -41,8 +41,10 @@ export default class Cursor{
     onScaleMouse(){
         this.Item.forEach((link) => {
             link.addEventListener("mouseenter", () => {
+                
                 this.Cursor.classList.add("media-blend");
                 this.scaleAnimation(this.Cursor.children[0], 1);
+                
             });
 
             link.addEventListener("mouseleave", ()=>{
@@ -54,6 +56,7 @@ export default class Cursor{
 
         this.ItemLink.forEach((link) => {
             link.addEventListener("mouseenter", () => {
+                // this.setImage(link);
                 this.Cursor.classList.add("media-blend");
                 this.scaleAnimation(this.Cursor.children[0], 0.8);
             });
@@ -64,6 +67,21 @@ export default class Cursor{
             })
         })
     }
+
+    // setImage(el){
+    //     let src = el.getAttribute("data-image");
+    //     let image = document.querySelector(`#${src}`)
+    //     let sibl = getSiblings(image);
+    //     if (image && image.id == src){
+    //         gsap.set(image, {zIndex:4, opacity:1});
+    //         sibl.forEach((i)=>{
+    //             gsap.set(i, {zIndex:1, opacity:0});
+    //             // console.log(i)
+    //         })
+    //     }
+    //     console.log(src, "Hovered on item");
+    //     console.log(sibl, "And this is sibling")
+    // }
 
     scaleAnimation(el, amt){
         gsap.to( el, {

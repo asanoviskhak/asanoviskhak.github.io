@@ -1,5 +1,6 @@
 import React,{useEffect, useState} from 'react';
 import Cursor from './cursor/cursor';
+import { motion } from "framer-motion";
 const proxy = "https://cors-anywhere.herokuapp.com/";
 
 
@@ -8,7 +9,7 @@ export default function Portfolio(){
     //let pfolio = []
     const [state, setState] = useState(true);
     const [pfolio, setPfolio] = useState([{}]);
-    
+    const transition = { duration: 0.6, ease: [0.45, 0.15, 0.25, 0.95] };
     useEffect( () => {
         const cursor = new Cursor(document.querySelector(".cursor"));
         let tester = []
@@ -30,10 +31,10 @@ export default function Portfolio(){
      }, [pfolio]) //Empty array for deps.
 
     if (state){
-        return <div className="div2 blog-list"> <h3>Loading....</h3></div>;
+        return <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {delay:.2, ...transition}}} exit={{opacity:0}} className="div2 blog-list"> <h3>Loading....</h3></motion.div>;
     }
     return (
-        <div className="div2">
+        <motion.div className="div2" initial={{opacity: 0}} animate={{opacity: 1, transition: {delay:.2, ...transition}}} exit={{opacity:0}}>
             <div className="blog-list">
                 {
                     pfolio.map((blog)=>(
@@ -44,6 +45,6 @@ export default function Portfolio(){
                     ))
                 }
             </div>
-        </div>
+        </motion.div>
     )
 }

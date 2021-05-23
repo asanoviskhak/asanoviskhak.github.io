@@ -46,6 +46,26 @@
   }
 }
 
+.with-image{
+  transition: all 0.2s ease-in-out;
+  &:hover:nth-child(1){
+    // color: white;
+    background-image: url("../images/code.jpg");
+    background-size: cover;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-stroke: 1px;
+  }
+  &:hover:nth-child(2){
+    // color: white;
+    background-image: url("../images/ulsan.jpg");
+    background-size: cover;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-stroke: 1px;
+  }
+}
+
 .proj-image{
   position: relative;
   width: 550px;
@@ -205,6 +225,7 @@
   }
   .proj-image{
     height: auto;
+    object-fit: cover;
   }
   .row-3{
     margin: 0;

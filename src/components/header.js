@@ -5,7 +5,6 @@ export default function Header() {
   return (
     <div className="div1 ">
       <div className="cursor-item-link header">
-        <hr className="vertical-line"></hr>
         <ul>
           <li id="i-profile">
             <NavLink className="link" activeClassName="active" exact to="/">
