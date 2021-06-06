@@ -7,13 +7,13 @@ $tab_max_width: 1340;
 $min_font: 56;
 $max_font: 110;
 
-.blog-list{
+.about-list{
     display: flex;
     flex-wrap: wrap;
     height: 420px;
 }
 
-.blog{
+.about{
     display: block;
     margin-right: 30px;
     margin-bottom: 30px;
@@ -23,7 +23,6 @@ $max_font: 110;
     max-width: 320px;
     min-width: 260px;
     color: white;
-    
     height: fit-content;
     transition: all 0.3s ease-in-out;
 }
@@ -32,14 +31,24 @@ $max_font: 110;
     color: #ffffff;
     border-bottom: 0.5px solid #000 ;
 }
-.blog:hover{
+.about:hover{
     background-color: #000;
-   
     filter: invert(1);
 }
 
+.invert{
+    background-color: #000;
+    filter: invert(1);
+}
+
+.invert:hover{
+    color: #ffffff;
+    background-color: transparent;
+    border-bottom: 0.5px solid #ffffff ;
+}
+
 @media (min-width: #{$mob_min_width}px) and (max-width: #{$mob_max_width}px){
-    .blog-list{
+    .about-list{
         margin-top: 60px;
         width: 85vw;
         height: max-content;

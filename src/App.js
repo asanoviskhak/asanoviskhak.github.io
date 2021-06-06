@@ -9,6 +9,7 @@ import PortfolioDetails from './components/portfolio-details'
 import './App.scss';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import { AnimatePresence } from 'framer-motion';
+import Me from './components/me';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
             <Route exact path="/"><Home/></Route>
             <Route exact path="/works"><Portfolio/></Route>
             <Route exact path="/blog"><Blog/></Route>
+            <Route exact path="/me"><Me/></Route>
             <Route exact path="/works/:workId" >
               <PortfolioDetails/>
             </Route>
