@@ -11,11 +11,11 @@ const Home=()=>{
         <>
         <motion.div className="div2" initial={{opacity: 0}} animate={{opacity: 1, transition: {delay:.2, ...transition}}} exit={{opacity:0}}>
             <div className="main-content" >
-                <Link to='/me'><div className="title cursor-item">ISKHAK ASANOV</div></Link>
+                <Link to='/me'><span className="title cursor-item">ISKHAK ASANOV</span></Link>
                 <div className="title2">
                 <span className="cursor-item-link with-image" data-image="Bulut" >WEB DEVELOPER </span>
-                    BASED IN <span className="cursor-item-link with-image" data-image="Ulsan" >ULSAN, </span>
-                    SOUTH KOREA
+                    FROM <span className="cursor-item-link with-image" data-image="Ulsan" >BISHKEK, </span>
+                    KYRGYZSTAN
                 </div>
             </div>
         </motion.div>
