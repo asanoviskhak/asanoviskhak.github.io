@@ -1581,18 +1581,24 @@ li {
   font-size: 24px;
   font-style: normal;
   font-weight: 300;
+  display: inline-block;
   color: rgba(243, 169, 169, 0.75);
-  transition: color 200ms linear, font-size 300ms linear;
+  -webkit-transform: scale(1);
+    transform: scale(1);
   text-decoration: none;
+  transition: all 0.3s linear;
 }
 
 .link:hover {
   color: rgba(255, 255, 255, 1);
-  font-size: 27px;
+  -webkit-transform: scale(1.1);
+    transform: scale(1.1);
 }
 
 .active {
   color: #ffffff;
+  -webkit-transform: scale(1.1);
+    transform: scale(1.1);
 }
 
 .main-content {

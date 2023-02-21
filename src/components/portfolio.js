@@ -78,34 +78,16 @@ pfolio = [
 ];
 
 export default function Portfolio() {
-  const [slide, setSlide] = useState(1);
+  const [slide, setSlide] = useState(0);
   const transition = { duration: 0.6, ease: [0.45, 0.15, 0.25, 0.95] };
 
   function handleCountNext() {
+    if (slide + 1 === pfolio.length) {
+      setSlide(0);
+      return;
+    };
     setSlide(slide + 1);
-    if (slide === pfolio.length) setSlide(1);
   }
-
-  useEffect(() => {
-    const cursor = new Cursor(document.querySelector(".cursor"));
-    // setInterval(()=>{
-    //   const blinker = document.querySelector(".img-carousel");
-    //     if (blinker){
-    //       document.querySelector(".img-carousel").classList.add("blink");
-    //       blink();
-    //     }
-    // }, 6500)
-    // function blink(){
-    //   setTimeout(()=>{
-    //     const blinker = document.querySelector(".img-carousel");
-    //     if (blinker.classList.contains("blink"))
-    //       blinker.classList.remove("blink");
-    //     else blinker.classList.add("blink");
-    //   }, 250);
-    // }
-  }, []);
-  
-  
 
   return (
     <Fragment>
@@ -121,9 +103,9 @@ export default function Portfolio() {
           <div className="portfolio col-2">
             <div className="cursor-item proj-image">
             <div className="img-carousel">
-              <Slider   >
+              <Slider>
                 {pfolio.map((work, i) => (
-                  <Slide index={i} className="slide-wrap">
+                  <Slide key={`${work.name}-${work.url}`} index={i} className="slide-wrap">
                     {/* <Link exact to={"/works/"+work.name}> */}
                     <Image
                       className="img-zoom-in"
@@ -140,8 +122,8 @@ export default function Portfolio() {
             <div className="row-3 white reverse-col">
               <div className="proj-content">
                 <Slider>
-                  {pfolio.map((work, i) => (
-                    <Slide index={i} className="work-image">
+                  {pfolio.map((work, idx) => (
+                    <Slide key={work.name} index={idx} className="work-image">
                       <motion.div exit={{ opacity: 0 }} transition={transition}>
                         <a
                           className="work-title cursor-item-link"
@@ -160,8 +142,8 @@ export default function Portfolio() {
                         <p className="portfolio-tools">
                           <b>Tools: </b>
                           {work.tools.map((tool, i) => {
-                            if (i+1===work.tools.length) return tool;
-                            else return tool + ", "
+                            if (i+1===work.tools.length) return <span key={tool}>${tool}</span>;
+                            return <span key={tool}>${tool + ", "}</span>
                           })}
                         </p>
                       </motion.div>
@@ -171,14 +153,9 @@ export default function Portfolio() {
               </div>
 
               <div className="col-2">
-                {/* <div className="arrows left cursor-item-link">
-                            <span>
-                                <ButtonBack onClick={handleCountBack} className="but-arr" ><img className="white" src={LeftArrow} alt='lft arrw'/></ButtonBack>
-                            </span>
-                        </div> */}
                 <div className="arrows left">
                   <span>
-                    {slide}/{pfolio.length}
+                    {slide + 1}/{pfolio.length}
                   </span>
                 </div>
                 <div className="arrows middle cursor-item-link">
