@@ -1,7 +1,18 @@
 import React,{useEffect, useState} from 'react';
 import Cursor from './cursor/cursor';
+import axios from 'axios';
+import { createClient } from 'contentful';
 import { motion } from "framer-motion";
 import './styles/blog.scss'
+
+const CONTENTFUL_SPACE_ID = process.env.REACT_APP_CONTENTFUL_SPACE_ID;
+const CONTENTFUL_ACCESS_TOKEN = process.env.REACT_APP_CONTENTFUL_ACCESS_TOKEN;
+
+const client = createClient({
+    space: CONTENTFUL_SPACE_ID,
+    accessToken: CONTENTFUL_ACCESS_TOKEN
+});
+
 export default function Portfolio(){
     //let pfolio = []
     const [state, setState] = useState(true);
@@ -25,7 +36,13 @@ export default function Portfolio(){
             console.log(e);
             return e;
         });
-     }, [blog]) //Empty array for deps.
+        client.getEntries({
+            content_type: 'blog'
+        }).then((response) => {
+            console.log(response);
+        })
+
+     }, []) //Empty array for deps.
 
     if (state){
         return <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {delay:.2, ...transition}}} exit={{opacity:0}} className="div2 blog-list"> <h3>Loading....</h3></motion.div>;
@@ -35,7 +52,7 @@ export default function Portfolio(){
             <div className="blog-list">
                 {
                     blog.map((blog)=>(
-                        <a href={blog.url} rel="noreferrer" target="_blank"><div className="blog cursor-item-link">
+                        <a key={blog.path} href={blog.url} rel="noreferrer" target="_blank"><div className="blog cursor-item-link">
                             <h3>{blog.title}</h3>
                             {/* <a className="blog-link" href={blog.url} target="_blank">View post →</a> */}
                         </div></a>
